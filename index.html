@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Fitness Tracker</h1>
+      <nav>
+        <div class="menu-icon" id="menu-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#activity">Activity Log</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#planner">Weekly Planner</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="dashboard">
+        <h2>Dashboard</h2>
+        <div id="dashboard-content">
+          <!-- Dashboard content will go here -->
+        </div>
+      </section>
+      <section id="activity">
+        <h2>Activity Log</h2>
+        <form id="activity-form">
+          <label for="activity-type">Activity Type:</label>
+          <select id="activity-type">
+            <option value="walking">Walking</option>
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+            <option value="swimming">Swimming</option>
+            <option value="rock climbing">Rock Climbing</option>
+            <option value="power lifting">Power Lifting</option>
+            <option value="hiit">HIIT Workouts</option>
+            <!-- Add more activity types as needed -->
+          </select>
+          <label for="duration">Duration (minutes):</label>
+          <input type="number" id="duration" required />
+          <label for="steps">Steps:</label>
+          <input type="number" id="steps" required />
+          <label for="date">Date:</label>
+          <input type="date" id="date" required />
+          <label for="time">Time:</label>
+          <input type="time" id="time" required />
+          <button type="submit">Log Activity</button>
+        </form>
+        <div id="activity-log">
+          <!-- Activity log content will go here -->
+        </div>
+      </section>
+      <section id="goals">
+        <h2>Goals</h2>
+        <form id="goal-form">
+          <label for="steps-goal">Steps Goal:</label>
+          <input type="number" id="steps-goal" required />
+          <label for="calories-goal">Calories Goal:</label>
+          <input type="number" id="calories-goal" required />
+          <label for="active-minutes-goal">Active Minutes Goal:</label>
+          <input type="number" id="active-minutes-goal" required />
+          <button type="submit">Set Goals</button>
+        </form>
+        <div id="progress-bars">
+          <div class="progress-bar">
+            <label>Steps Progress:</label>
+            <div class="progress-bar-inner" id="steps-progress"></div>
+          </div>
+          <div class="progress-bar">
+            <label>Calories Progress:</label>
+            <div class="progress-bar-inner" id="calories-progress"></div>
+          </div>
+          <div class="progress-bar">
+            <label>Active Minutes Progress:</label>
+            <div class="progress-bar-inner" id="active-minutes-progress"></div>
+          </div>
+        </div>
+      </section>
+      <section id="profile">
+        <h2>Profile</h2>
+        <form id="profile-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required />
+          <label for="age">Age:</label>
+          <input type="number" id="age" required />
+          <button type="submit">Update Profile</button>
+        </form>
+      </section>
+      <section id="planner">
+        <h2>Weekly Planner</h2>
+        <form id="planner-form">
+          <label for="planner-activity-type">Activity Type:</label>
+          <select id="planner-activity-type">
+            <option value="walking">Walking</option>
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+            <option value="swimming">Swimming</option>
+            <option value="rock climbing">Rock Climbing</option>
+            <option value="power lifting">Power Lifting</option>
+            <option value="hiit">HIIT Workouts</option>
+            <option value="yoga">Yoga</option>
+            <option value="pilates">Pilates</option>
+            <option value="dance">Dance</option>
+            <!-- Add more activity types as needed -->
+          </select>
+          <label for="planner-duration">Duration (minutes):</label>
+          <input type="number" id="planner-duration" required />
+          <label for="planner-day">Day of the Week:</label>
+          <select id="planner-day">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="sunday">Sunday</option>
+          </select>
+          <button type="submit">Add to Planner</button>
+        </form>
+        <div id="planner-display">
+          <!-- Weekly planner content will go here -->
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
