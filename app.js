@@ -380,30 +380,31 @@ document.addEventListener("DOMContentLoaded", function () {
   // Display stored goals, profile, and activity data
   displayStoredData();
 
-  // Toggle the navigation menu on mobile
-  const menuIcon = document.getElementById("menu-icon");
-  const navList = document.getElementById("nav-list");
-  menuIcon.addEventListener("click", function () {
-    navList.classList.toggle("show");
-  });
 
-  // Dark Mode Toggle
-  const darkModeToggle = document.getElementById("dark-mode-toggle");
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const darkModeIcon = document.getElementById("dark-mode-icon");
   const body = document.body;
 
-  darkModeToggle.addEventListener("change", function () {
-    if (darkModeToggle.checked) {
-      body.classList.add("dark-mode");
-      localStorage.setItem("darkMode", "enabled");
-    } else {
+  darkModeIcon.addEventListener("click", function () {
+    if (body.classList.contains("dark-mode")) {
       body.classList.remove("dark-mode");
       localStorage.setItem("darkMode", "disabled");
+    } else {
+      body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "enabled");
     }
   });
 
   // Check for previously saved preference
   if (localStorage.getItem("darkMode") === "enabled") {
-    darkModeToggle.checked = true;
     body.classList.add("dark-mode");
   }
+});
+// Hamburger menu toggle
+const menuIcon = document.getElementById("menu-icon");
+const navList = document.getElementById("nav-list");
+
+menuIcon.addEventListener("click", function () {
+  navList.classList.toggle("show");
 });
