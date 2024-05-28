@@ -60,35 +60,6 @@ body {
     margin-right: 0.5rem;
   }
   
-  .toggle-switch {
-    width: 50px;
-    height: 24px;
-    background: #ccc;
-    border-radius: 12px;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .toggle-switch .switch-knob {
-    width: 22px;
-    height: 22px;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    transition: transform 0.3s;
-  }
-  
-  .toggle-switch.active {
-    background: #4CAF50;
-  }
-  
-  .toggle-switch.active .switch-knob {
-    transform: translateX(26px);
-  }
-  
   @media (max-width: 768px) {
     .menu-icon {
       display: flex;
