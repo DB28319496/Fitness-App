@@ -4,100 +4,100 @@ body {
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
+}
+
+header {
     background-color: #4CAF50;
     color: white;
     padding: 1rem 2rem;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-  }
-  
-  .menu-icon {
+}
+
+.menu-icon {
     display: none;
     flex-direction: column;
     justify-content: space-around;
     height: 24px;
     cursor: pointer;
-  }
-  
-  .menu-icon .bar {
+}
+
+.menu-icon .bar {
     width: 25px;
     height: 3px;
     background-color: white;
     margin: 2px 0;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: space-around;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     margin: 0.5rem 1rem;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .menu-icon {
-      display: flex;
+        display: flex;
     }
-  
+
     nav ul {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #4CAF50;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #4CAF50;
     }
-  
+
     nav ul.show {
-      display: flex;
+        display: flex;
     }
-  
+
     nav ul li {
-      text-align: center;
-      margin: 1rem 0;
+        text-align: center;
+        margin: 1rem 0;
     }
-  }
-  
-  main {
+}
+
+main {
     padding: 2rem;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #333;
     font-weight: 500;
     text-align: center;
-  }
-  
-  form {
+}
+
+form {
     background: white;
     padding: 1.5rem 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-top: 1rem;
     font-weight: 500;
-  }
-  
-  input, select, button {
+}
+
+input, select, button {
     display: block;
     width: 100%;
     padding: 0.75rem;
@@ -105,168 +105,174 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
-  }
-  
-  button {
+}
+
+button {
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.3s;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
-  #workout-suggestions .workout {
+}
+
+#workout-suggestions .workout {
     background-color: white;
     padding: 1.5rem 2rem;
     margin-bottom: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  #workout-suggestions .workout h3 {
+}
+
+#workout-suggestions .workout h3 {
     margin-top: 0;
     font-weight: 500;
-  }
-  
-  #workout-suggestions ul {
+}
+
+#workout-suggestions ul {
     list-style: none;
     padding: 0;
     margin: 1rem 0 0 0;
-  }
-  
-  #workout-suggestions li {
+}
+
+#workout-suggestions li {
     padding: 0.5rem 0;
     border-bottom: 1px solid #f0f0f0;
-  }
-  
-  #workout-suggestions li:last-child {
+}
+
+#workout-suggestions li:last-child {
     border-bottom: none;
-  }
-  
-  #dashboard-content {
+}
+
+#dashboard-content {
     background: white;
     padding: 1.5rem 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-  }
-  
-  .progress-bar {
+}
+
+.progress-bar {
     margin-top: 1rem;
-  }
-  
-  .progress-bar label {
+}
+
+.progress-bar label {
     font-weight: 500;
     display: block;
     margin-bottom: 0.5rem;
-  }
-  
-  .progress-bar-inner {
+}
+
+.progress-bar-inner {
     background-color: #4CAF50;
     height: 1rem;
     border-radius: 4px;
     width: 0;
     transition: width 0.3s;
-  }
-  
-  #activity-log p {
+}
+
+#activity-log p {
     text-align: center;
-  }
-  
-  #planner-schedule {
+}
+
+#planner-schedule {
     background: white;
     padding: 1.5rem 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .weekly-day {
+}
+
+.weekly-day {
     margin-bottom: 1rem;
-  }
-  
-  .weekly-day h3 {
+}
+
+.weekly-day h3 {
     margin: 0;
     font-weight: 500;
-  }
-  
-  .weekly-day ul {
+}
+
+.weekly-day ul {
     list-style: none;
     padding: 0;
     margin: 0.5rem 0 0 0;
-  }
-  
-  .weekly-day li {
+}
+
+.weekly-day li {
     padding: 0.5rem 0;
     border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .weekly-day li:last-child {
+}
+
+.weekly-day li:last-child {
     border-bottom: none;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     header {
-      padding: 1rem;
+        padding: 1rem;
     }
-    
+
     main {
-      padding: 1rem;
+        padding: 1rem;
     }
-    
+
     form, #dashboard-content, .workout {
-      padding: 1rem;
+        padding: 1rem;
     }
-  }
-  /* Position the dark mode toggle in the top right corner */
+
+    /* Style adjustments for mobile */
+    .dark-mode-icon {
+        width: 20px; /* Smaller size for mobile */
+        height: 20px; /* Smaller size for mobile */
+    }
+}
+
+/* Position the dark mode toggle in the top right corner */
 header {
     position: relative;
-  }
-  
-  .dark-mode-toggle {
+}
+
+.dark-mode-toggle {
     position: absolute;
     top: 10px;
     right: 10px;
     display: flex;
     align-items: center;
-  }
-  
-  /* Style the dark mode icon */
-  .dark-mode-icon {
+}
+
+/* Style the dark mode icon */
+.dark-mode-icon {
     width: 24px; /* Adjust the size as needed */
     height: 24px; /* Adjust the size as needed */
     cursor: pointer;
     transition: transform 0.3s;
-  }
-  
-  .dark-mode-icon:hover {
+}
+
+.dark-mode-icon:hover {
     transform: scale(1.1);
-  }
-  
-  /* Dark mode styles */
-  body.dark-mode {
+}
+
+/* Dark mode styles */
+body.dark-mode {
     background-color: #333;
     color: #f5f5f5;
-  }
-  
-  body.dark-mode header {
+}
+
+body.dark-mode header {
     background-color: #222;
-  }
-  
-  body.dark-mode nav ul {
+}
+
+body.dark-mode nav ul {
     background-color: #222;
-  }
-  
-  body.dark-mode form, body.dark-mode #dashboard-content, body.dark-mode .workout, body.dark-mode #planner-schedule {
+}
+
+body.dark-mode form, body.dark-mode #dashboard-content, body.dark-mode .workout, body.dark-mode #planner-schedule {
     background-color: #444;
     color: #f5f5f5;
-  }
-  
-  body.dark-mode .progress-bar-inner {
+}
+
+body.dark-mode .progress-bar-inner {
     background-color: #888;
-  }
-  
+}
