@@ -213,6 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the dashboard with totals
       const dashboardTotals = calculateTotals(activityLog);
       updateDashboard(dashboardTotals);
+
+      // Render the charts
+      renderCharts(activityLog);
     }
 
     const dashboardData = {
@@ -275,6 +278,98 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
 
+  // Function to render charts
+  function renderCharts(activityLog) {
+    const dates = activityLog.map(log => log.date);
+    const steps = activityLog.map(log => log.steps);
+    const calories = activityLog.map(log => log.duration * 10); // Assuming 10 calories per minute
+    const activeMinutes = activityLog.map(log => log.duration);
+
+    const stepsChart = new Chart(document.getElementById('stepsChart'), {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Steps',
+          data: steps,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              unit: 'day'
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const caloriesChart = new Chart(document.getElementById('caloriesChart'), {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Calories Burned',
+          data: calories,
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              unit: 'day'
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const activeMinutesChart = new Chart(document.getElementById('activeMinutesChart'), {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Active Minutes',
+          data: activeMinutes,
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'time',
+            time: {
+              unit: 'day'
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
   // Add event listeners for form submissions
   document.getElementById("goal-form").addEventListener("submit", handleGoalFormSubmit);
   document.getElementById("profile-form").addEventListener("submit", handleProfileFormSubmit);
@@ -291,4 +386,25 @@ document.addEventListener("DOMContentLoaded", function () {
   menuIcon.addEventListener("click", function () {
     navList.classList.toggle("show");
   });
+
+  // Dark Mode Toggle
+  const darkModeSwitch = document.getElementById("dark-mode-switch");
+  const body = document.body;
+
+  darkModeSwitch.addEventListener("click", function () {
+    darkModeSwitch.classList.toggle("active");
+    if (darkModeSwitch.classList.contains("active")) {
+      body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+
+  // Check for previously saved preference
+  if (localStorage.getItem("darkMode") === "enabled") {
+    darkModeSwitch.classList.add("active");
+    body.classList.add("dark-mode");
+  }
 });
