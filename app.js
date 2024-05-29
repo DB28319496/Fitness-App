@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const activityType = document.getElementById("activity-type").value;
     const duration = parseInt(document.getElementById("duration").value);
     const steps = parseInt(document.getElementById("steps").value);
-    const dateValue = document.getElementById("date").value; // Get date
-    const timeValue = document.getElementById("time").value; // Get time
+    const dateValue = document.getElementById("date").value;
+    const timeValue = document.getElementById("time").value;
 
     if (activityType && !isNaN(duration) && !isNaN(steps) && dateValue && timeValue) {
       const date = new Date(dateValue + 'T' + timeValue);
@@ -56,90 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       alert("Please enter valid activity data.");
     }
-  }
-
-  // Function to handle form submission for workout suggestions
-  function handleWorkoutFormSubmit(event) {
-    event.preventDefault();
-    const goal = document.getElementById("goal").value;
-    const suggestions = getWorkoutSuggestions(goal);
-    displayWorkoutSuggestions(suggestions);
-  }
-
-  // Function to get workout suggestions based on goal
-  function getWorkoutSuggestions(goal) {
-    const suggestions = {
-      weight_loss: [
-        {
-          name: "HIIT Workout",
-          exercises: [
-            { name: "Jumping Jacks", reps: "30 seconds" },
-            { name: "Push-ups", reps: "15 reps" },
-            { name: "Squats", reps: "20 reps" },
-            { name: "Burpees", reps: "10 reps" },
-          ],
-        },
-        {
-          name: "Cardio Session",
-          exercises: [
-            { name: "Running", reps: "30 minutes" },
-            { name: "Cycling", reps: "30 minutes" },
-          ],
-        },
-      ],
-      muscle_gain: [
-        {
-          name: "Strength Training",
-          exercises: [
-            { name: "Bench Press", reps: "3 sets of 8 reps" },
-            { name: "Deadlift", reps: "3 sets of 6 reps" },
-            { name: "Pull-ups", reps: "3 sets of 10 reps" },
-            { name: "Squats", reps: "3 sets of 10 reps" },
-          ],
-        },
-        {
-          name: "Bodyweight Exercises",
-          exercises: [
-            { name: "Push-ups", reps: "3 sets of 15 reps" },
-            { name: "Lunges", reps: "3 sets of 20 reps" },
-            { name: "Plank", reps: "3 sets of 1 minute" },
-          ],
-        },
-      ],
-      endurance: [
-        {
-          name: "Endurance Training",
-          exercises: [
-            { name: "Long-distance Running", reps: "60 minutes" },
-            { name: "Cycling", reps: "60 minutes" },
-            { name: "Swimming", reps: "30 minutes" },
-          ],
-        },
-        {
-          name: "Interval Training",
-          exercises: [
-            { name: "Sprints", reps: "10 sets of 1 minute" },
-            { name: "Jump Rope", reps: "10 sets of 2 minutes" },
-          ],
-        },
-      ],
-    };
-    return suggestions[goal] || [];
-  }
-
-  // Function to display workout suggestions
-  function displayWorkoutSuggestions(suggestions) {
-    const workoutSuggestionsElement = document.getElementById("workout-suggestions");
-    workoutSuggestionsElement.innerHTML = suggestions
-      .map(suggestion => `
-        <div class="workout">
-          <h3>${suggestion.name}</h3>
-          <ul>
-            ${suggestion.exercises.map(exercise => `<li>${exercise.name}: ${exercise.reps}</li>`).join("")}
-          </ul>
-        </div>
-      `)
-      .join("");
   }
 
   // Function to handle form submission for the weekly planner
@@ -251,7 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedActivityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
     return storedActivityLog.reduce((totals, activity) => {
       totals.steps += activity.steps;
-      // Sample data for calories burned and active minutes (you can customize this)
       totals.calories += activity.duration * 10; // Example: 10 calories per minute
       totals.activeMinutes += activity.duration;
       return totals;
@@ -374,15 +289,20 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("goal-form").addEventListener("submit", handleGoalFormSubmit);
   document.getElementById("profile-form").addEventListener("submit", handleProfileFormSubmit);
   document.getElementById("activity-form").addEventListener("submit", handleActivityFormSubmit);
-  document.getElementById("workout-form").addEventListener("submit", handleWorkoutFormSubmit);
   document.getElementById("planner-form").addEventListener("submit", handlePlannerFormSubmit);
 
   // Display stored goals, profile, and activity data
   displayStoredData();
 
+  // Hamburger menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const navList = document.getElementById("nav-list");
 
-});
-document.addEventListener("DOMContentLoaded", function () {
+  menuIcon.addEventListener("click", function () {
+    navList.classList.toggle("show");
+  });
+
+  // Dark Mode Toggle
   const darkModeIcon = document.getElementById("dark-mode-icon");
   const body = document.body;
 
@@ -400,11 +320,4 @@ document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("darkMode") === "enabled") {
     body.classList.add("dark-mode");
   }
-});
-// Hamburger menu toggle
-const menuIcon = document.getElementById("menu-icon");
-const navList = document.getElementById("nav-list");
-
-menuIcon.addEventListener("click", function () {
-  navList.classList.toggle("show");
 });
